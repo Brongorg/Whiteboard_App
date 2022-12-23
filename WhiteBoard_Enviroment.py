@@ -8,8 +8,8 @@ WC.createTextInput()
 
 for i in range(len(buttonNames)):
     WC.createToolbarButton(buttonNames[i],i)
-WC.createCloseButton(i)
+WC.createFunctionButtons(i)
 
-#WC.window.attributes('-fullscreen', True) #Sets window to full screen
+WC.window.attributes('-fullscreen', True) #Sets window to full screen
 WC.window.mainloop()
 #class WBtools
