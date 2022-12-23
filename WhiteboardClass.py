@@ -1,7 +1,8 @@
 import tkinter as  tk #import *
 from datetime import datetime
 
-window = tk.Tk() #Base root window that the whole project relies on. 
+window = tk.Tk(className = "Whiteboard App") #Base root window that the whole project relies on. 
+window.geometry("500x200")
 def createWindow():
     return tk.Toplevel() # creates a top window on top of lower window
 
@@ -11,13 +12,17 @@ def createlabel(input): #Creates a label on the window with the text of the inpu
 def createToolbarButton(buttonName,index): #creates a button with the names stored in an input array
     prog_button = tk.Button(window, text = str(buttonName), padx = 50, pady = 20, command = useButton, bg = "grey")
     prog_button.grid(row = 1, column = index)
+    
+def createCloseButton(index):
+    close_button = tk.Button(window, text = "Close",  padx = 50, pady = 20, bg = "grey", command=closeButton )
+    close_button.grid(row = 1, column = index+1)
 
 def useButton(): #Experiemental function to create a label
-    createlabel("button was clicked")
+    return "hi"
     
 
-def completeButton(): #Use if the complete note button is pressed
-    return " "
+def closeButton(): #Use if the complete note button is pressed
+    window.destroy()
 
 def createTextInput(): #Used to add text to the screen 
     textLine = tk.Entry(window, width = 100, borderwidth=5, bg = "grey", fg = "black")
