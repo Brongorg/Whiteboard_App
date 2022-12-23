@@ -1,4 +1,5 @@
 import tkinter as  tk #import *
+from datetime import datetime
 
 window = tk.Tk() #Base root window that the whole project relies on. 
 def createWindow():
@@ -9,7 +10,7 @@ def createlabel(input): #Creates a label on the window with the text of the inpu
 
 def createToolbarButton(buttonName,index): #creates a button with the names stored in an input array
     prog_button = tk.Button(window, text = str(buttonName), padx = 50, pady = 20, command = useButton, bg = "grey")
-    prog_button.grid(row = 0, column = index)
+    prog_button.grid(row = 1, column = index)
 
 def useButton(): #Experiemental function to create a label
     createlabel("button was clicked")
@@ -19,7 +20,11 @@ def completeButton(): #Use if the complete note button is pressed
     return " "
 
 def createTextInput(): #Used to add text to the screen 
-    textLine = tk.Entry(window, width = 100, bg = "grey", fg = "black")
+    textLine = tk.Entry(window, width = 100, borderwidth=5, bg = "grey", fg = "black")
+    textLine.grid(row = 0, column = 0)
+    logInstance = datetime.now()
+    prt = logInstance.strftime("%m/%d/%y %H:%M:%S") + " : "
+    textLine.insert(0,prt)
 
 def textTranslate(entry): #Pulls the string from an entry on the window
     return entry.get()
@@ -32,6 +37,7 @@ def textPush(stringArray, entry): ##appends the text from the designated entry t
 buttonNames = ["stove", "sink", "Refrigerator", "Microwave", "Complete Note" ]
 textLines = []
 #tk.Button(window, text = "Open Note Catagories", command = createWindow).pack()
+createTextInput()
 for i in range(len(buttonNames)):
     createToolbarButton(buttonNames[i],i)
 
