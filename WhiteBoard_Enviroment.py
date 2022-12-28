@@ -4,12 +4,9 @@ import WhiteboardClass as WC
 buttonNames = ["stove", "sink", "Refrigerator", "Microwave"]
 textLines = []
 #tk.Button(window, text = "Open Note Catagories", command = createWindow).pack()
-WC.createTextInput()
+WC.createTextInput(len(buttonNames))
 
-for i in range(len(buttonNames)):
-    WC.createToolbarButton(buttonNames[i],i)
-WC.createFunctionButtons(i)
-
-WC.window.attributes('-fullscreen', True) #Sets window to full screen
+WC.placeButtonsToScreen(buttonNames)
+#WC.window.attributes('-fullscreen', True) #Sets window to full screen
 WC.window.mainloop()
 #class WBtools
