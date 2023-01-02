@@ -4,17 +4,22 @@ from datetime import datetime
 #Window Size variables
 
 #Global Variables
-fileName = "WhiteboardLog.txt"
-height = 1080
-width = 1920
+fileName = "WhiteboardLog.txt" #Default text file to read and write to
+height = 1080 #Default height of the window
+width = 1920  #default width of the window
 txtheight = 15
 lastRow = 0
 recentEntries = []
 button_width = width/12.5
 inputLine = None
+count = 0
 
 window = tk.Tk(className = "Whiteboard App") #Base root window that the whole project relies on. 
 window.geometry(str(width)+ 'x'+ str(height))
+file = str(fileName)
+fileRead = open(file, "r+")
+
+
 
 def createWindow():
     return tk.Toplevel() # creates a top window on top of lower window
@@ -49,7 +54,8 @@ def saveButton():
     file = str(fileName)
     fileWrite = open(file, "r+")
     for i in range(len(recentEntries)):
-        fileWrite.write(recentEntries[i] + " \n")
+        currentLine = recentEntries[i]
+        fileWrite.write(currentLine)
     fileWrite.close()
         
     
@@ -95,6 +101,18 @@ def runTextField():
     global inputLine
     inputLine = createTextInput()
     createAddEntryButton(inputLine)
+    
+
+while True:
+    line = fileRead.readline()
+    line.strip() # If this works it should remove any newline stored in the variable
+    recentEntries.append(line)
+    
+    if not line:
+        break
+    
+    createTextlabel(recentEntries[count], len(recentEntries))
+    count += 1
     
     
     
