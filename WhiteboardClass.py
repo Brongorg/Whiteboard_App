@@ -11,6 +11,7 @@ txtheight = 15
 lastRow = 0
 recentEntries = []
 button_width = width/12.5
+inputLine = None
 
 window = tk.Tk(className = "Whiteboard App") #Base root window that the whole project relies on. 
 window.geometry(str(width)+ 'x'+ str(height))
@@ -20,13 +21,15 @@ def createWindow():
 
 #Button Functions
 
-def createToolbarButton(buttonName,index, length): #creates a button with the names stored in an input array
-    prog_button = tk.Button(window, text = str(buttonName), padx = button_width, pady = 30, command = useButton, bg = "grey")
+def createToolbarButton(buttonName,index, tl): #creates a button with the names stored in an input array
+    prog_button = tk.Button(window, text = str(buttonName), padx = button_width, pady = 30, command = lambda: useButton(buttonName, tl), bg = "grey")
     prog_button.place( x = 0 + (button_width*2.1*index) , y = height - 150)
      
 
-def useButton(): #Experiemental function to create a label
-    return "hi"
+def useButton(name, entry): #Experiemental function to create a label
+    name = str(name) + " Observation"
+    entry.insert(30,name)
+    
     
 def createFunctionButtons(index, length):
     save_Button = tk.Button(window, text = "Save",  padx = button_width, pady = 30, bg = "grey", command=saveButton ) #Should save what ever is in the recent entires array
@@ -36,7 +39,7 @@ def createFunctionButtons(index, length):
     
 def placeButtonsToScreen(buttonNames):
     for i in range(len(buttonNames)):
-        createToolbarButton(buttonNames[i],i,len(buttonNames))
+        createToolbarButton(buttonNames[i],i,inputLine)
     createFunctionButtons(i, len(buttonNames))
 
 
@@ -58,7 +61,7 @@ def closeButton(): #Use if the complete note button is pressed
 #Entry Functions
 
 
-def createTextInput(length): #Used to add text to the screen 
+def createTextInput(): #Used to add text to the screen 
     textLine = tk.Entry(window, width = 100, borderwidth=5, bg = "grey", fg = "black")
     textLine.place(y = height - 200, x = 0)
     logInstance = datetime.now()
@@ -88,9 +91,10 @@ def createAddEntryButton(en):
 def addEntryFunction(en):
     entryFieldtoLabel(en)
 
-def runTextField(size):
-    entry = createTextInput(size)
-    createAddEntryButton(entry)
+def runTextField():
+    global inputLine
+    inputLine = createTextInput()
+    createAddEntryButton(inputLine)
     
     
     

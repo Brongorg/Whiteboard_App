@@ -4,7 +4,7 @@ import WhiteboardClass as WC
 buttonNames = ["stove", "sink", "Refrigerator", "Microwave"]
 textLines = []
 
-WC.runTextField(len(buttonNames))
+WC.runTextField()
 
 WC.placeButtonsToScreen(buttonNames)
 
