@@ -7,7 +7,8 @@ from datetime import datetime
 fileName = "WhiteboardLog.txt"
 height = 1080
 width = 1920
-txtRow = 0
+txtheight = 15
+lastRow = 0
 recentEntries = []
 button_width = width/12.5
 
@@ -65,15 +66,22 @@ def createTextInput(length): #Used to add text to the screen
     textLine.insert(0,prt)
     return textLine
 
-def createTextlabel(input,): #Creates a label on the window with the text of the input variable converted to a string, and places based on number of entries created
+def createTextlabel(input, num): #Creates a label on the window with the text of the input variable converted to a string, and places based on number of entries created
     txtLabel = tk.Label(window, text = str(input))
-    txtLabel.place(x = 0, y = txtRow )#(entryNumbers)) 
+    global lastRow
+    if num < 2:
+          txtLabel.place(x = 0, y = 0)
+    else:
+         txtLabel.place(x = 0, y = lastRow + txtheight )
+         lastRow = lastRow + txtheight
+   
 
-def entryFieldtoLabel(en): ##appends the text from the designated entry to the Master array
+def entryFieldtoLabel(en): ##appends the text from the designated entry to the Master array, 
     currentEntry = en.get()
-    createTextlabel(currentEntry)
+    recentEntries.append(currentEntry)
+    createTextlabel(currentEntry, len(recentEntries))
     
-def createAddEntryButton(en):
+def createAddEntryButton(en): 
     addButton = tk.Button(text = "Add", padx = 5, pady = 2, command=lambda: addEntryFunction(en), bg = "grey")
     addButton.place(x = 610, y = height - 200)
     
