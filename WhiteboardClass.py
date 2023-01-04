@@ -1,18 +1,18 @@
 import tkinter as  tk #import *
 from datetime import datetime
 
-#Window Size variables
-
 #Global Variables
 fileName = "WhiteboardLog.txt" #Default text file to read and write to
+
 height = 1080 #Default height of the window
 width = 1920  #default width of the window
-txtheight = 15
-lastRow = 0
+
+txtheight, lastRow, count  = 20, 0, 0
 recentEntries = []
+
 button_width = width/12.5
 inputLine = None
-count = 0
+
 
 window = tk.Tk(className = "Whiteboard App") #Base root window that the whole project relies on. 
 window.geometry(str(width)+ 'x'+ str(height))
@@ -32,7 +32,7 @@ def createToolbarButton(buttonName,index, tl): #creates a button with the names 
      
 
 def useButton(name, entry): #Experiemental function to create a label
-    name = str(name) + " Observation"
+    name = str(name) + " Observation, "
     entry.insert(30,name)
     
     
@@ -71,7 +71,7 @@ def createTextInput(): #Used to add text to the screen
     textLine = tk.Entry(window, width = 100, borderwidth=5, bg = "grey", fg = "black")
     textLine.place(y = height - 200, x = 0)
     logInstance = datetime.now()
-    prt = logInstance.strftime("%m/%d/%y %H:%M:%S") + " : "
+    prt = logInstance.strftime("%m/%d/%y %H:%M:%S") + ", "
     textLine.insert(0,prt)
     return textLine
 
