@@ -1,0 +1,48 @@
+Features to add:
+    -Emails the designated text file to a designated target
+    -Buttons Scale properly with the number of observation fields
+    -clear button removes all characters from the entry field but the time
+    -Entry Log requires an observation field before it can be added to the txt file
+    -All Entrys added to a scrollable field on the white space
+    -Laguage Detection and translation
+    -Recycles a fresh txt document at the end of a designated period
+    -Displays the most recent entry at the top of the board
+
+Known Bugs:
+    -When a new entry is added if always is loaded on the same line as the last when save is pressed
+
+
+
+-Version 0.6 
+Identified a slight overlap in the text labels. Increased the txtheight var to be 20 to compensate.
+Adjusted how string data is saved to the txt file.
+Added commas after the data and observation so a txt file could easily be converted to a csv
+
+-Version 0.51 
+Created Function that quickly add the subject of the observation to the entry box.
+Issue to be fixed in following updates: when the save button is used it over writes the previous save
+
+-Version 0.50 
+Added a function that adds each new entry added via the add button to a global array 
+and displays it as a label in the field of the window
+
+-Version 0.40 
+Added functions to copy any text in the entry field and display them to the window as a label at the top.
+
+-Version 0.30 
+Changed Window from a grid Configuration to a place configuration
+
+-Version 0.23
+Added a debug Environment and included a functional save feature to the whiteboard that saves strings in an array to the WhiteboardLog file
+
+-Version 0.22 
+Added a Close Button and Automatic Full Screen
+
+-Version 0.21 
+Made a class dedicated to holding functions used in the environment to clean up the run block
+
+-Version 0.2: 
+Added an automatic Entry that enters date and time to an entry.
+
+-Version 0.1: 
+Began Setting up the enviroment for the whiteboard app

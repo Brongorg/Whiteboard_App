@@ -1,6 +1,19 @@
-Test Line 1 
+Test Line 1  
+
 Testline 2
+
 01/01/23 20:11:55, Microwave Observation testline 
-01/01/23 20:12:14, stove Observation 
+
+01/01/23 20:12:14, stove Observation
+
 01/01/23 20:12:23, Refrigerator Observation 
+
 01/04/23 12:11:32, Refrigerator Observation, the light in the back doesnt turn on if I slowly open the door.
+
+01/04/23 12:33:34, Microwave Observation, Turntable stuck
+
+01/08/23 11:17:13, Sink Observation, New Entry
+
+01/08/23 11:21:12, Stove Observation, new
+
+01/08/23 11:43:55, new entry

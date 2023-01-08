@@ -32,7 +32,7 @@ def createToolbarButton(buttonName,index, tl): #creates a button with the names 
      
 
 def useButton(name, entry): #Experiemental function to create a label
-    name = str(name) + " Observation, "
+    name = str(name) + " Observation, " #Convert this to an Fstring
     entry.insert(30,name)
     
     
@@ -53,9 +53,9 @@ def saveButton():
 
     file = str(fileName)
     fileWrite = open(file, "r+")
-    for i in range(len(recentEntries)):
-        currentLine = recentEntries[i]
-        fileWrite.write(currentLine)
+    for i in (recentEntries):
+        fileWrite.write(i+'\n')
+    
     fileWrite.close()
         
     
@@ -105,14 +105,16 @@ def runTextField():
 
 while True:
     line = fileRead.readline()
-    line.strip() # If this works it should remove any newline stored in the variable
-    recentEntries.append(line)
-    
+    line.replace("\n", "") # If this works it should remove any newline stored in the variable
+    if len(line)>1:
+        recentEntries.append(line)
+        createTextlabel(recentEntries[count], len(recentEntries))
+        count += 1
+        
     if not line:
         break
     
-    createTextlabel(recentEntries[count], len(recentEntries))
-    count += 1
+    
     
     
     
