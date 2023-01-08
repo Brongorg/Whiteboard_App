@@ -7,11 +7,25 @@ Features to add:
     -Laguage Detection and translation
     -Recycles a fresh txt document at the end of a designated period
     -Displays the most recent entry at the top of the board
+    -File Verification fucntion 
 
 Known Bugs:
+
     -When a new entry is added if always is loaded on the same line as the last when save is pressed
+        -Resolved: 
+            Casued bug:
+                -Error was casued by a newline value not added in the last entry casuing the string fusion
+                Solution of adding that newline casued the exponential spacing
+                    -Resolved:
+                        Expontial Spacing between lines casued by there being a label created regardless if the line was filled
+                        Fixed by making the count increment dependant on the label having more than 1 character in it.
 
+-Version 0.71
+Created a change log in the directory and made edits to WhiteboardClass.py. 
+Changes include readability, style edits, and removed unnecessary functions. 
 
+-Version 0.7 
+Located the cause of the joined entries bug as well as the exponential whitespace bug and patched both
 
 -Version 0.6 
 Identified a slight overlap in the text labels. Increased the txtheight var to be 20 to compensate.
