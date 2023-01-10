@@ -20,6 +20,9 @@ Known Bugs:
                         Expontial Spacing between lines casued by there being a label created regardless if the line was filled
                         Fixed by making the count increment dependant on the label having more than 1 character in it.
 
+-Version 0.72 
+Patched a code breaking bug that was caused by a typo in the close statement of the class initialization.
+
 -Version 0.71
 Created a change log in the directory and made edits to WhiteboardClass.py. 
 Changes include readability, style edits, and removed unnecessary functions. 

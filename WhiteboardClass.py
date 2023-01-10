@@ -114,7 +114,7 @@ while True: #Used in initialization to write all entries in the white board to t
         
     if not line:
         break
-fileRead.colse() #Ensures that the txt file is clsoed after initialization  
+fileRead.close() #Ensures that the txt file is clsoed after initialization  
     
     
     
